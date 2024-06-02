@@ -12,7 +12,7 @@ Welcome to the Flask Multi-App Platform, a comprehensive web application suite d
 - **More Coming Soon**:
 
 
-
+## Getting Started ==> See Wiki
 
 
 ## Contributing
