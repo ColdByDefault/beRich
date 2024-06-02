@@ -26,11 +26,11 @@ To set up the application locally, follow these steps:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/ColdByDefault/BeRichPy.git
+git clone https://github.com/ColdByDefault/beRichPy.git
 ```
 3. Navigate into the project directory:
 ```bash
-cd BeRichPy
+cd version_1.0
 ```
 4. Install the required dependencies:
 ```bash
@@ -69,7 +69,7 @@ git clone https://github.com/ColdByDefault/beRichPy.git
 ```
 2. Navigate into the project directory:
 ```bash
-cd BeRichPy
+cd version_1.0
 ```
 3. Install the required dependencies:
 ```bash
