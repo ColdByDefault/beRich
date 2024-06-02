@@ -1,15 +1,4 @@
 
-# Flask Multi-App Platform
-
-## Introduction
-
-Welcome to the Flask Multi-App Platform, a comprehensive web application suite developed with a robust tech stack including Python, Flask, HTML, CSS, JavaScript, and SQLite3. This platform serves as a container for multiple specialized web applications, with a scalable architecture that supports the addition of new apps in future releases. The initial release, Version 1.0.0, features the Berichtshefte Web-App as its cornerstone application.
-
-## Features
-
-- **User Authentication**: Includes functionality for user registration, login, and logout, all managed securely through server-side sessions without relying on client-side cookies.
-- **Dynamic Responsiveness**: The interface and certain functionalities adapt based on the user's authentication status. Some applications and features are exclusively available to logged-in users, enhancing security and user experience.
-- **Scalable Framework**: Designed to facilitate the seamless integration of additional web applications in future updates.
 
 
 # Berich Web-App
@@ -76,7 +65,7 @@ You can check your Python version by running python3 --version in your terminal.
 To set up the application locally on macOS or Linux, follow these steps:
 1. Clone the repository:
 ```bash
-git clone https://github.com/ColdByDefault/BeRichPy.git
+git clone https://github.com/ColdByDefault/beRichPy.git
 ```
 2. Navigate into the project directory:
 ```bash
