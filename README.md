@@ -12,61 +12,7 @@ Welcome to the Flask Multi-App Platform, a comprehensive web application suite d
 - **More Coming Soon**:
 
 
-## Getting Started on WINDOWS 
 
-### Prerequisites
-
-Ensure you have Python 3.9 (or higher) and pip installed on your system.
-
-### Setup
-
-To set up the application locally, follow these steps:
-
-1. Clone the repository:
-```bash
-git clone https://github.com/ColdByDefault/BeRichPy.git
-```
-3. Navigate into the project directory:
-```bash
-cd BeRichPy
-```
-4. Install the required dependencies:
-```bash
-pip install -r requirements.txt
-```
-5. Run the application:
-```bash
-python run.py
-```
-
-After these steps, the web-app will be accessible at [http://127.0.0.1:5555/].
-
-## Getting Started on macOS or Linux
-
-### Prerequisites
-Ensure you have Python 3.9 (or higher) and pip installed on your system. 
-You can check your Python version by running python3 --version in your terminal.
-
-### Setup
-
-To set up the application locally on macOS or Linux, follow these steps:
-1. Clone the repository:
-```bash
-git clone https://github.com/ColdByDefault/beRichPy.git
-```
-2. Navigate into the project directory:
-```bash
-cd BeRichPy
-```
-3. Install the required dependencies:
-```bash
-pip3 install -r requirements.txt
-```
-4. Run the application:
-```bash
-python3 run.py
-```
-After these steps, the web-app will be accessible at [http://127.0.0.1:5555/].
 
 
 ## Contributing
