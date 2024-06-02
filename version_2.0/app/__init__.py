@@ -1,7 +1,8 @@
 from flask import Flask, render_template
+from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from config import Config
-
+from flask_bcrypt import Bcrypt
 
 
 db = SQLAlchemy()
@@ -33,5 +34,10 @@ def create_app():
     with app.app_context():
         db.create_all()
         
-        
+    migrate = Migrate(app, db) 
+    #migrate, this is done once:
+    #flask db init
+    #flask db migrate -m "Initial migration."
+    #flask db upgrade
+       
     return app

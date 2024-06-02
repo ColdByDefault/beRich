@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Log-In{% endblock %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{{ url_for('user.static', filename='user.css') }}">
@@ -13,7 +13,7 @@
             <div class="circle circle-one"></div>
             <div class="form-container">
                 <h1 class="opacity">ANMELDEN</h1>
-                <form action="/login" method="post">
+                <form action="{{ url_for('user.login') }}" method="post">
                     <input type="text" name="userName" placeholder="USERNAME" required/>
                     <div class="toggle-div">
                       <input type="password" name="userPassword" placeholder="PASSWORD" class="password-input" id="userPassword" required/>
