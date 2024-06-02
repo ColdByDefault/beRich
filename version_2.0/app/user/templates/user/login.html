@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('user.static', filename='user.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="big-container">
+    <section class="container">
+        <div class="login-container">
+            <div class="circle circle-one"></div>
+            <div class="form-container">
+                <h1 class="opacity">ANMELDEN</h1>
+                <form action="/login" method="post">
+                    <input type="text" name="userName" placeholder="USERNAME" required/>
+                    <div class="toggle-div">
+                      <input type="password" name="userPassword" placeholder="PASSWORD" class="password-input" id="userPassword" required/>
+                      <span onclick="togglePasswordVisibility()" class="toggle-password">
+                          <i id="toggleIcon" class="fa fa-eye"></i>
+                      </span>
+                    </div>  
+                      <button class="opacity">ABSCHICKEN</button>
+                </form>
+                <div class="register-forget opacity">
+                    <a href="/register">REGISTRIEREN</a>
+                    <!-- <a href="">FORGOT PASSWORD</a> -->
+                </div>
+            </div>
+            <div class="circle circle-two"></div>
+        </div>
+    </section>
+</div>
+<script>
+    function togglePasswordVisibility() {
+        let passwordInput = document.getElementById('userPassword');
+        let toggleIcon = document.getElementById('toggleIcon');
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            toggleIcon.className = "fa fa-eye-slash"; 
+        } else {
+            passwordInput.type = "password";
+            toggleIcon.className = "fa fa-eye"; 
+        }
+    }
+</script>
+{% endblock %}
