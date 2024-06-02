@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('main.static', filename='main.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="content">
+    <div class="title">Welcome to <span>BeRich</span>  Lab</div>
+    <p>Developer: <span>ColdByDefault</span></p>
+</div>
+{% endblock %}

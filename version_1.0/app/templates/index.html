@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1e357b3107.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <title>{% block title %}BeRich{% endblock %}</title>
+</head>
+<body>
+    <canvas id="starCanvas"></canvas>
+    <!--{% if 'user' in session %}
+        <h3 class="wlc-msg">Willkommen<span>{{ user }}</span></h3>
+    {% endif %}-->
+    
+    <section class="mainSection">
+        <div class="hero-left">
+            <a href="/apps" id='homeTitle'>Apps</a>
+            <!--<a href="">BeRich.py</a>-->
+            <!-- <a href="/projects">Projects</a> -->
+            <!-- <a href="/other">Other</a> -->
+            
+            {% if 'user' in session %}
+                <a  href="/my_profile">Profile <span style="font-size:.8rem;">{{ session['user'] }}</a>
+                <a  href="/logout">Logout</a>
+            {% else %}
+                <a  href="/login">Account</a>
+            {% endif %}
+        </div>
+    </section>
+    
+    <footer>
+        <div class="dropup">
+            <button class="dropup-button">ColdByDefault</button>
+            <div class="dropup-content">
+                <a class="dropdown-item" href="https://github.com/ColdByDefault" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <!--<a class="dropdown-item" href="#"><i class="fa-solid fa-paper-plane"></i></a>-->
+            </div>
+        </div>
+    </footer>
+    <script src="{{url_for('static', filename='js/index.js')}}"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+
+/* Title  */
+.content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+    color: var(--color-palette-first);
+}
+
+.content .title{
+    font-size: 40px;
+    font-weight: 700;
+}
+.title :nth-child(1){
+    color: var(--color-palette-fourth); 
+}
+
+.content p {
+    margin-top: 55px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-palette-first);
+}
+
+.content p span{
+    color: var(--color-palette-second);
+}

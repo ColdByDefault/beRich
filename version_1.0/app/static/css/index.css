@@ -1,0 +1,213 @@
+@import url(https://fonts.googleapis.com/css?family=Voltaire);
+
+
+:root{
+  --prime-background-color: #000000;
+  --secondary-background-color: #222;
+  --prime-font-family: 'Voltaire', sans-serif;
+  --prime-font-color: rgb(121, 121, 122);
+  --prime-hover-color: #3880c4;
+  --prime-hover-text-color: rgb(169, 212, 252);
+  --teal-green-color: #4db6ac;
+}
+
+*, *:before, *:after{
+  margin: 0;
+  padding: 0;
+  position: relative;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  background-color: var(--prime-background-color);
+}
+
+#starCanvas{
+  position: fixed;
+  width: 100%;
+  z-index: -1;
+  background-color: var(--prime-background-color);
+}
+
+.wlc-msg{
+  background-color: #2b89e270;
+  box-shadow: 0 0 36px 1px rgba(98, 179, 245, 0.116);
+  border-radius: 10px;
+  backdrop-filter: blur(20px);
+  padding: .6rem;
+  margin-top: .3rem;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.wlc-msg span{
+  color: var(--prime-hover-text-color);
+}
+
+
+.bg-hero{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+}
+
+.mainSection{
+  font-family: var(--prime-font-family);
+  color: var(--secondary-background-color);
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  z-index: 2;
+  margin: 200px 0;
+}
+
+.mainSection a{
+  display: block;
+  text-decoration: none;
+  color: var(--prime-font-color);
+  font-size: 1.2em;
+  font-weight: 800;
+  text-transform: UPPERCASE;
+  transform-origin: 0 0;
+  transform: matrix(1, -0.4, 0, 1.2, 0, 5);
+  padding: .2em;
+  margin-bottom: .3em;
+  transition: .5s background;
+}
+
+#homeTitle{
+  font-size: 2.2em;
+}
+
+.mainSection a:nth-of-type(even){
+  border-right: 6px solid; 
+  border-top: 1px solid;   
+  border-bottom: 1px solid;  
+}
+
+.mainSection a:nth-of-type(odd){
+  border-left: 6px solid;
+}
+
+.mainSection a:hover, nav a:focus{
+  background: var(--prime-hover-color);
+  color: var(--prime-hover-text-color);
+  border-color: var(--secondary-background-color);
+}
+
+footer{
+  position: absolute;
+  display: flex;
+  justify-content: space-evenly;
+  width: 20%;
+  right: 0;
+  bottom: 0;
+  padding: 0 5px ;
+  background-color: transparent;
+  opacity: .4;
+  color: whitesmoke;
+  font-family: var(--prime-font-family);
+}
+
+.dropup-content {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  background-color: #f9f9f9;
+  min-width: 20%px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropup-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+
+.dropup-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropup-button {
+  background-color: var(--secondary-background-color);
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropup:hover .dropup-content {
+  display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 600px){
+  section{
+    width: 100%;
+  }
+  section a{
+    font-size: 1.2em;
+  }
+  #starCanvas{
+    display: none;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 1024px){
+  section a {
+    font-size: 1.5em;
+  }
+  
+} 
+
+@media (min-width: 1025px){
+  section {
+    font-size: 2em;
+  }
+}

@@ -1,0 +1,121 @@
+
+
+body {
+    font-family: var(--prime-font-family); 
+    font-size: 1rem; 
+    color: var(--prime-font-color); 
+    padding: 20px;
+}
+section{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    width: 100%;
+}
+.container-result{
+    width: 75%;
+}
+.document-header{
+    position: relative;
+    font-size: 18px;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    width: 80%;
+    margin: .6rem;
+}
+.document-header span{
+    color: var(--prime-hover-color);
+}
+.container-result-form{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #b3b0b0; 
+    background-color: rgb(255, 255, 255);
+    align-items: center;
+    justify-content: space-around;
+}    
+.form-feld{
+    border: 1px solid #b3b0b0; 
+    padding: .5rem;
+    margin: .4rem;
+    width: 20%;
+}
+.value{
+    color: var(--prime-hover-color);
+}
+
+.schedule-flex-grow{
+    display: flex;
+    gap: 10px;
+    background-color: rgb(255, 255, 255);
+}
+.schedule-flex-grow > div {
+    flex-grow: 1; 
+    text-align: center;
+}
+.schedule-flex-grow > div:nth-child(2){
+    flex-grow: 8;
+}
+
+.schedule-notes{
+    background-color: rgb(255, 255, 255);
+}
+.schedule-weekNr{
+    display: flex;
+    background-color: rgb(185, 183, 183);
+}
+.schedule-weekNr :nth-child(1){
+    flex-grow: 2;
+    border-right: 1px  solid #ffffff;
+    text-align: center;
+}
+.schedule-weekNr :nth-child(2){
+    flex-grow: 6;
+    text-align: center;
+}
+.schedule-days{
+    display: flex;
+}
+.schedule-days :nth-child(1){
+    width: 10%;
+    text-align: center;
+    border: 1px  solid #b3b0b0; 
+}
+.schedule-days :nth-child(2){
+    width: 80%;
+    border: 1px  solid #b3b0b0;
+    padding: .2rem;
+}
+.schedule-days :nth-child(3){
+    width: 10%;
+    text-align: center;
+    border: 1px  solid #b3b0b0; 
+}
+
+.just-a-line{
+    
+    width: 280px;
+    border-bottom: 1px groove black;
+    display: flex;
+    width: 100%;
+}
+.user-picture{
+    position: relative;
+    width: 100%;
+    height: 3.3rem;
+    background-color: rgb(255, 255, 255);
+}
+.user-picture img{
+    width: 120px;
+    height: 30px;
+    padding-left: 2rem;
+}
+.strong{
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    padding: 1rem 0;
+}

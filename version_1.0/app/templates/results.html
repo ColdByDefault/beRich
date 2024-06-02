@@ -1,0 +1,102 @@
+
+{% extends "base.html" %}
+{% block title %}Results{% endblock %}
+
+
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}">
+{% endblock %}
+
+
+
+{% block content %}
+<section>
+<div class="container-result">
+    <div class="container-result-form">
+        <h1 class="document-header"><span>GFN</span> Berichtshefte</h1>
+        {% if form_data %}
+                    {% set ns = namespace(count=0) %}
+                    {% for key, value in form_data.items() %}
+                        {% if key != 'image_path'%}
+                            <div class="form-feld"><strong class="{{ key | lower }}">{{ key }}</strong></div>
+                            <div class="form-feld value">{{ value }}</div>
+                            {% set ns.count = ns.count + 1 %}
+                        {% endif %}
+                    {% endfor %}
+        {% endif %}
+    </div>
+    <div class="schedule-flex-grow">
+        <div>Tag</div>
+        <div>Notes</div>
+        <div>LF</div>
+    </div>
+    <div class="schedule-notes">
+        {% if notes_data %}
+        {% set ns = namespace(week_num=1) %}
+        <div class="schedule-weekNr">
+            <div>Woche</div>
+            <div>Woche {{ ns.week_num }}</div>
+            <div></div>
+        </div>
+        {% for day, notes in notes_data.items() %}
+            <div class="schedule-days">
+                <div>{{ day[:-1] | lower }}</div>
+                <textarea class="editable-notes" data-day="{{ day }}">{{ notes }}</textarea>
+                <div>{{ form_data.LF }}</div>
+            </div>
+            {% if loop.index % 5 == 0 and not loop.last %}
+                {% set ns.week_num = ns.week_num + 1 %}
+                <div class="schedule-weekNr">
+                    <div>Woche</div>
+                    <div>Woche {{ ns.week_num }}</div>
+                    <div></div>
+                </div>
+            {% endif %}
+        {% endfor %}
+        {% endif %}
+        <button onclick="submitEdits()">Save Changes</button>
+    </div>
+    <div class="strong">Durch die nachfolgende Unterschrift wird die Richtigkeit
+        und Vollständigkeit der obigen Angaben bestätigt.
+    </div>
+    <div class="user-picture">
+        <div class="just-a-line">
+        {% if form_data.image_path %}
+            <img src="{{ url_for('static', filename=form_data.image_path) }}" >
+        {% endif %}
+        </div>
+        <div class="just-a-line">
+            <div class="user-picture">Datum, Unterschrift der/des Auszubildenden</div>
+            <div class="user-picture">Datum, Unterschrift der/des Ausbildenden (GFN GmbH,Praktikumsbetrieb)</div>
+        </div>    
+    </div>    
+</div>
+<div>
+    <a href="/coming_soon">Absenden</a>
+</div>
+</section>
+
+<script>
+    function submitEdits() {
+        let editedNotes = {};
+        document.querySelectorAll('.editable-notes').forEach(elem => {
+            editedNotes[elem.getAttribute('data-day')] = elem.value;
+        });
+
+        fetch('/submit-edits', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(editedNotes)
+        })
+        .then(response => response.json())
+        .then(data => alert(data.message))
+        .catch(error => console.error('Error:', error));
+    }
+</script>
+{% endblock %}
+
+
+
