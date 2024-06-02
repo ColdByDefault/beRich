@@ -9,7 +9,7 @@ a{
 
 h1{
     font-size: 2.5rem;
-    color: var(--color-palette-fourth);
+    color: var(--color-palette-third);
 }
 
 .big-container{
@@ -50,7 +50,7 @@ h1{
     padding: 14.5px;
     width: 100%;
     margin: 1rem 0;
-    color: var(--color-palette-second);
+    color: var(--color-palette-fourth);
     outline: none;
     background-color: var(--secondary--background-color);
     border: .3px solid var(--color-palette-second);

@@ -32,7 +32,7 @@ function drawStar(star) {
     ctx.beginPath();
     const adjustedRadius = starRadius * (star.z / maxDepth);
     ctx.arc(star.x, star.y, adjustedRadius, 0, Math.PI * 2);
-    ctx.fillStyle = '#386ACC';
+    ctx.fillStyle = '#00bbf0';
     ctx.fill();
     ctx.closePath();
 }
