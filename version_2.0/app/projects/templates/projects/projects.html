@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Projects{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('projects.static', filename='projects.css') }}">
+{% endblock %}
+{% block content %}
+<h1>projects</h1>
+{% endblock %}

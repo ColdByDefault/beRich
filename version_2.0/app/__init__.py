@@ -29,6 +29,9 @@ def create_app():
     
     from .user import user as user_blueprint
     app.register_blueprint(user_blueprint, url_prefix='/account')
+    
+    """ from .projects import projects as projects_blueprint
+    app.register_blueprint(projects_blueprint, url_prefix='/projects') """
 
     
     with app.app_context():
