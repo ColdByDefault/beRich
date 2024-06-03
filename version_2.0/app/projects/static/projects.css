@@ -1,35 +1,86 @@
-a, a:visited, a:active{
+
+.top-sections {
+    position: relative;
+    scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 2rem;
+    z-index: 2;
+}
+
+.circle{
+    width: 8rem;
+    height: 8rem;
+    background: rgba(0, 90, 146, 0.582);
+    border-radius: 50%;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0);
+    backdrop-filter: blur(5.1px);
+    -webkit-backdrop-filter: blur(5.1px);
+    border: 1px solid rgba(0, 91, 146, 0.02);
+    position: absolute;
+    z-index: 0;
+}
+
+.circle-one{
+    top: 20%;
+    left: 12%;
+    transform: translate(-50%, -50%);
+}
+
+.circle-two{
+    bottom: 12%;
+    right: 12%;
+    transform: translate(50%, 50%);
+}
+
+.apps-list-section{
+    position: relative;
+    display: flex;
+    width: 80%;
+    height: auto;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 80px 0 0 0;
+    padding: 2rem;
+    border: 1px solid var(--color-palette-second);
+    box-shadow: 0 0 36px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    backdrop-filter: blur(20px);
+    background: #00204a8f; 
+}
+
+.app-link{
+    font-size: 25px;
     color: var(--color-palette-fifth);
     text-decoration: none;
     font-weight: 700;
 }
-.all-sections{
-    position: relative;
-    z-index: 3;
-    scroll-behavior: smooth;
-}
-
-.apps-list{
+.berichTkinter-link{
     position: relative;
     display: flex;
-    width: 100%;
-    height: auto;
     align-items: center;
-    justify-content: space-around;
-    margin: 10px 0 2500px 0;
-
+    justify-content: center;
+    flex-direction: column;
+    
 }
-.app-one{
-    font-size: 25px;
-    z-index: 3;
+.berichTkinter-link img{
+    width: 250px;
+    height: 250px;
+    border-radius: 25%;
+    margin-top: 1rem;
 }
 
+
+
+
+
+/* beRichCTKinter README. */
 .switch-lang{
     margin-left: 1rem;
     animation: blinkingColor 2s infinite;
-
 }
-
 .readme-container{
     background-color: var(--prime-background-color);
     border: 1px solid var(--color-palette-first);
@@ -37,8 +88,14 @@ a, a:visited, a:active{
     padding: 16px;
     max-width: 900px;
     margin: 3rem auto;
+    z-index: 3;
+    position: relative;
 }
-
+.readme-container a, .readme-container a:visited, .readme-container a:active{
+    color: var(--color-palette-fifth);
+    text-decoration: none;
+    font-weight: 700;
+}
 .repo-header h1{
     font-size: 26px;
     color: var(--color-palette-first);
@@ -80,8 +137,37 @@ a, a:visited, a:active{
     margin-bottom: 8px;
 }
 
-
 @keyframes blinkingColor {
     0%, 100% { color: white; } 
     50% { color: #1bdaf3; } 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .apps-list-section {
+        width: 100%;
+        padding: 1rem;
+    }
+    
+    .berichTkinter-link {
+        flex: 1 1 100%;
+        margin: 0.5rem 0;
+    }
+
+    .berichTkinter-link img {
+        width: 100%;
+        height: auto;
+        border-radius: 15%;
+    }
 }

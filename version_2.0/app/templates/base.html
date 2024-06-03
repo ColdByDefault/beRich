@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!--Basics-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Base Template{% endblock %}</title>
+    <!--OG-->
+    <meta name="description" content="This is an example of a web application created by ColdByDefault.">
+    <meta name="keywords" content="Flask, Web Application, ColdByDefault">
+    <meta name="author" content="ColdByDefault">
+    <!--icons fontawesome-->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://kit.fontawesome.com/1e357b3107.js" crossorigin="anonymous"></script>
-    <title>{% block title %}Base Template{% endblock %}</title>
+    <!--links-->
     <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
     {% block extra_css %}{% endblock %}
 </head>
 
@@ -25,6 +35,7 @@
             <li><a href="{{ url_for('admin.index') }}">Admins</a></li>
             <li><a href="{{ url_for('projects.projects_list') }}">Projects</a></li>
             <li><a href="#">About</a></li>
+            <li><button class="btn" onclick="toggleTheme()">Change Theme</button></li>
         </ul>
     </div>
     <script src="{{ url_for('static', filename='base.js') }}"></script>
