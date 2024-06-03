@@ -1,0 +1,87 @@
+a, a:visited, a:active{
+    color: var(--color-palette-fifth);
+    text-decoration: none;
+    font-weight: 700;
+}
+.all-sections{
+    position: relative;
+    z-index: 3;
+    scroll-behavior: smooth;
+}
+
+.apps-list{
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px 0 2500px 0;
+
+}
+.app-one{
+    font-size: 25px;
+    z-index: 3;
+}
+
+.switch-lang{
+    margin-left: 1rem;
+    animation: blinkingColor 2s infinite;
+
+}
+
+.readme-container{
+    background-color: var(--prime-background-color);
+    border: 1px solid var(--color-palette-first);
+    border-radius: 6px;
+    padding: 16px;
+    max-width: 900px;
+    margin: 3rem auto;
+}
+
+.repo-header h1{
+    font-size: 26px;
+    color: var(--color-palette-first);
+}
+
+.repo-header p{
+    font-size: 16px;
+    color: #d6d6d6;
+}
+
+.markdown-body{
+    font-size: 14px;
+    line-height: 1.5;
+    color: #d6d6d6;
+}
+
+.markdown-body h2{
+    color: var(--color-palette-second);
+    border-bottom: 1px solid var(--prime-background-color);
+    padding-bottom: 8px;
+}
+
+.markdown-body pre{
+    background-color: #334457;
+    padding: 16px;
+    font-family: monospace;
+    border-radius: 6px;
+}
+
+.markdown-body ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.markdown-body li {
+    padding: 8px;
+    border-radius: 6px;
+    background-color: #515152;
+    margin-bottom: 8px;
+}
+
+
+@keyframes blinkingColor {
+    0%, 100% { color: white; } 
+    50% { color: #1bdaf3; } 
+}

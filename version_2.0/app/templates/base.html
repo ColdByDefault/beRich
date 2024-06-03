@@ -23,7 +23,7 @@
             <li><a href="{{ url_for('user.login') }}">Account</a></li>
             {% endif %}
             <li><a href="{{ url_for('admin.index') }}">Admins</a></li>
-            <li><a href="#">Projects</a></li>
+            <li><a href="{{ url_for('projects.projects_list') }}">Projects</a></li>
             <li><a href="#">About</a></li>
         </ul>
     </div>
