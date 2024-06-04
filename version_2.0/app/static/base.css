@@ -4,6 +4,7 @@
 
 :root{
   --prime-background-color: #000000;
+  --prime-background-color-light: rgba(107, 107, 104, 0.13);
   --secondary-background-color: #14213d;
   --color-palette-first: #22223b;
   --color-palette-first-light: #282844;

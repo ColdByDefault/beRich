@@ -71,6 +71,7 @@ window.addEventListener('resize', () => {
 const themes = [
     {
         '--prime-background-color': '#000000',
+        '--prime-background-color-light': 'rgba(107, 107, 104, 0.13)',
         '--secondary-background-color': '#14213d',
         '--color-palette-first': '#22223b',
         '--color-palette-first-light': '#282844',
@@ -82,6 +83,7 @@ const themes = [
     },
     {
         '--prime-background-color': '#0a2344',
+        '--prime-background-color-light': 'rgba(107, 107, 104, 0.13)',
         '--secondary-background-color': '#3b1d4a',
         '--color-palette-first': '#282844',
         '--color-palette-first-light': '#3b1d4a',
