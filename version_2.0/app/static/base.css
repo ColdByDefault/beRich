@@ -16,7 +16,7 @@
   --prime-font-family: "Titillium Web", sans-serif;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -24,14 +24,15 @@
     scroll-behavior: smooth;
 }
 
-body, html{
+body, html {
     width: 100%;
-    height: 100%;   
+    height: 100%;
     background: var(--prime-background-color);
     scroll-behavior: smooth;
 }
+
 /* stars background */
-canvas{
+canvas {
     position: fixed;
     top: 0;
     left: 0;
@@ -39,23 +40,26 @@ canvas{
     height: 100%;
     z-index: 1;
 }
+
 /* Hamburger Menu */
-.wrapper{
+.wrapper {
     position: fixed;
     top: 0;
-    right: -100%;
+    right: -35%;
     height: 100%;
-    width: 100%;
+    width: 35%;
     background: linear-gradient(-45deg, var(--color-palette-first) 0%, var(--color-palette-first-light) 100%);
     transition: all 0.6s ease-in-out;
     z-index: 4;
+    clip-path: polygon(100% 0%, 100% 100%, 50% 100%, 0% 0%);
 }
 
-#active:checked ~ .wrapper{
+
+#active:checked ~ .wrapper {
     right: 0;
 }
 
-.menu-btn{
+.menu-btn {
     position: absolute;
     z-index: 5;
     right: 20px;
@@ -73,7 +77,7 @@ canvas{
 
 .menu-btn span,
 .menu-btn:before,
-.menu-btn:after{
+.menu-btn:after {
     content: "";
     position: absolute;
     top: calc(50% - 1px);
@@ -83,15 +87,15 @@ canvas{
     transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-.menu-btn:before{
+.menu-btn:before {
     transform: translateY(-8px);
 }
 
-.menu-btn:after{
+.menu-btn:after {
     transform: translateY(8px);
 }
 
-.close{
+.close {
     z-index: 2;
     width: 100%;
     height: 100%;
@@ -99,21 +103,21 @@ canvas{
     transition: background .6s;
 }
 
-#active:checked + .menu-btn span{
+#active:checked + .menu-btn span {
     transform: scaleX(0);
 }
 
-#active:checked + .menu-btn:before{
+#active:checked + .menu-btn:before {
     transform: rotate(45deg);
     border-color: var(--color-palette-fourth); 
 }
 
-#active:checked + .menu-btn:after{
+#active:checked + .menu-btn:after {
     transform: rotate(-45deg);
     border-color: var(--color-palette-fourth); 
 }
 
-.wrapper ul{
+.wrapper ul {
     position: absolute;
     top: 60%;
     left: 50%;
@@ -123,12 +127,12 @@ canvas{
     text-align: center;
 }
 
-.wrapper ul li{
+.wrapper ul li {
     height: 10%;
     margin: 15px 0;
 }
 
-.wrapper ul li a{
+.wrapper ul li a {
     text-decoration: none;
     font-size: 30px;
     font-weight: 500;
@@ -143,7 +147,7 @@ canvas{
     transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-.wrapper ul li:not(:last-child) a:after{
+.wrapper ul li:not(:last-child) a:after {
     position: absolute;
     content: "";
     background: var(--prime-background-color);
@@ -157,35 +161,35 @@ canvas{
     transition: transform 0.3s ease;
 }
 
-.wrapper ul li:not(:last-child) a:hover:after{
+.wrapper ul li:not(:last-child) a:hover:after {
     transform: scaleY(1);
 }
 
-.wrapper ul li:not(:last-child) a:hover{
+.wrapper ul li:not(:last-child) a:hover {
     color: var(--color-palette-fourth); 
 }
 
-input[type="checkbox"]{
+input[type="checkbox"] {
     display: none;
 }
 
-#active:checked ~ .wrapper ul li a{
+#active:checked ~ .wrapper ul li a {
     opacity: 1;
 }
 
-.wrapper ul li a{
+.wrapper ul li a {
     transition: opacity 1.2s, transform 1.2s cubic-bezier(0.215, 0.61, 0.355, 1);
     transform: translateX(100px);
 }
 
-#active:checked ~ .wrapper ul li a{
+#active:checked ~ .wrapper ul li a {
     transform: none;
     transition-timing-function: ease, cubic-bezier(.1,1.3,.3,1);
     transition-delay: .6s;
     transform: translateX(-100px);
 }
 
-.btn{
+.btn {
     background-color: var(--secondary-background-color);
     padding: 1rem;
     border: none;
@@ -197,10 +201,74 @@ input[type="checkbox"]{
     color: var(--color-palette-fifth);
     cursor: pointer;
 }
-.btn:hover{
+
+.btn:hover {
     color: var(--color-palette-first);
     background-color: var(--color-palette-fourth);
     transition: all ease .3s;
     box-shadow: 0 0 15px 2px var(--color-palette-fourth);
     backdrop-filter: blur(20px);
+}
+
+
+/* Media query for large screens */
+@media (min-width: 1200px) {
+    .wrapper {
+        right: -35%;
+        width: 35%;
+    }
+
+    #active:checked ~ .wrapper {
+        right: 0;
+    }
+
+    .wrapper ul {
+        top: 50%;
+    }
+
+    .wrapper ul li a {
+        font-size: 28px; /* Slightly smaller font size for large screens */
+    }
+}
+
+/* Media query for medium screens */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .wrapper {
+        right: -35%;
+        width: 35%;
+    }
+
+    #active:checked ~ .wrapper {
+        right: 0;
+    }
+
+    .wrapper ul {
+        top: 40%;
+    }
+
+    .wrapper ul li a {
+        font-size: 24px; /* Smaller font size for medium screens */
+    }
+}
+
+/* Media query for small screens */
+@media (max-width: 767px) {
+    .wrapper {
+        right: -50%;
+        width: 50%;
+    }
+
+    #active:checked ~ .wrapper {
+        right: 0;
+    }
+
+    .wrapper ul {
+        top: 45%;
+        
+    }
+
+    .wrapper ul li a {
+        font-size: 20px;
+
+    }
 }
