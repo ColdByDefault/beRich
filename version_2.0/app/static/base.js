@@ -32,7 +32,7 @@ function drawStar(star) {
     ctx.beginPath();
     const adjustedRadius = starRadius * (star.z / maxDepth);
     ctx.arc(star.x, star.y, adjustedRadius, 0, Math.PI * 2);
-    ctx.fillStyle = '#00bbf0';
+    ctx.fillStyle = '#c9ada7';
     ctx.fill();
     ctx.closePath();
 }
@@ -70,13 +70,14 @@ window.addEventListener('resize', () => {
 /* theme btn */
 const themes = [
     {
-        '--prime-background-color': '#00204a',
-        '--secondary-background-color': '#222',
-        '--color-palette-first': '#005792',
-        '--color-palette-second': '#00bbf0',
-        '--color-palette-third': '#fdb44b', 
-        '--color-palette-fourth': '#41d8bf',
-        '--color-palette-fifth': '#ee5a5a',
+        '--prime-background-color': '#000000',
+        '--secondary-background-color': '#14213d',
+        '--color-palette-first': '#22223b',
+        '--color-palette-first-light': '#282844',
+        '--color-palette-second': '#4a4e69',
+        '--color-palette-third': '#9a8c98', 
+        '--color-palette-fourth': '#c9ada7',
+        '--color-palette-fifth': '#f2e9e4',
     },
     {
         '--prime-background-color': '#000000',

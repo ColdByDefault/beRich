@@ -3,13 +3,15 @@
 
 
 :root{
-  --prime-background-color: #00204a;
-  --secondary-background-color: #222;
-  --color-palette-first: #005792;
-  --color-palette-second: #00bbf0;
-  --color-palette-third: #fdb44b; 
-  --color-palette-fourth: #41d8bf;
-  --color-palette-fifth: #ee5a5a;
+  --prime-background-color: #000000;
+  --secondary-background-color: #14213d;
+  --color-palette-first: #22223b;
+  --color-palette-first-light: #282844;
+  --color-palette-second: #4a4e69;
+  --color-palette-third: #9a8c98; 
+  --color-palette-fourth: #c9ada7;
+  --color-palette-fifth: #f2e9e4;
+  --color-palette-circle: #927e7ab0;;
   --prime-font-family: "Titillium Web", sans-serif;
 }
 
@@ -43,7 +45,7 @@ canvas{
     right: -100%;
     height: 100%;
     width: 100%;
-    background: linear-gradient(-45deg, var(--color-palette-first) 0%, var(--color-palette-first) 100%);
+    background: linear-gradient(-45deg, var(--color-palette-first) 0%, var(--color-palette-first-light) 100%);
     transition: all 0.6s ease-in-out;
     z-index: 4;
 }
@@ -140,7 +142,7 @@ canvas{
     transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-.wrapper ul li a:after{
+.wrapper ul li:not(:last-child) a:after{
     position: absolute;
     content: "";
     background: var(--prime-background-color);
@@ -154,11 +156,11 @@ canvas{
     transition: transform 0.3s ease;
 }
 
-.wrapper ul li a:hover:after{
+.wrapper ul li:not(:last-child) a:hover:after{
     transform: scaleY(1);
 }
 
-.wrapper ul li a:hover{
+.wrapper ul li:not(:last-child) a:hover{
     color: var(--color-palette-fourth); 
 }
 
@@ -180,4 +182,24 @@ input[type="checkbox"]{
     transition-timing-function: ease, cubic-bezier(.1,1.3,.3,1);
     transition-delay: .6s;
     transform: translateX(-100px);
+}
+
+.btn{
+    background-color: var(--secondary-background-color);
+    padding: 1rem;
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    color: var(--color-palette-fifth);
+    cursor: pointer;
+}
+.btn:hover{
+    color: var(--color-palette-first);
+    background-color: var(--color-palette-fourth);
+    transition: all ease .3s;
+    box-shadow: 0 0 15px 2px var(--color-palette-fourth);
+    backdrop-filter: blur(20px);
 }

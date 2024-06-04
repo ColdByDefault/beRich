@@ -9,16 +9,15 @@
     text-align: center;
     width: 40%;
     padding: 2rem;
-    color: var(--color-palette-first);
-    border: 1px solid var(--color-palette-second);
-    box-shadow: 0 0 36px 10px rgba(0, 0, 0, 0.466);
+    border: 1px solid var(--color-palette-fifth);
+    box-shadow: 0 0 50px 2px var(--color-palette-first);
     border-radius: 10px;
     background-color: var(--secondary--background-color);
-    border: .3px solid var(--color-palette-second);
+    border: .3px solid var(--color-palette-fifth);
     font-weight: 500;
     letter-spacing: 0.8px;
     font-size: 15px;
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(5px);
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
@@ -29,14 +28,14 @@
     font-size: 2.5em;
     font-weight: bold;
     text-align: center;
-    color: var(--color-palette-first);
+    color: var(--color-palette-third);
     text-shadow: 1px 1px 0 #000, 2px 2px 0 #000, 3px 3px 2px #000, 4px 4px 5px #000, 5px 5px 10px #000;
     position: relative;
     display: inline-block;
 }
 
 .title span {
-    color: var(--color-palette-fourth);
+    color: var(--color-palette-fifth);
 }
 
 .title::before {

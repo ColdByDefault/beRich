@@ -1,15 +1,8 @@
 
 
-a{
-    font-family: var(--color-palette-first);
-    text-decoration: none;
-    color: var(--color-palette-first);
-}
-
-
 h1{
     font-size: 2.5rem;
-    color: var(--color-palette-third);
+    color: var(--color-palette-fourth);
 }
 
 .big-container{
@@ -34,8 +27,8 @@ h1{
 }
 
 .form-container{
-    border: 1px solid var(--color-palette-second);
-    box-shadow: 0 0 36px 1px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--color-palette-first-light);
+    box-shadow: 0 0 36px 1px var(--secondary--background-color);
     border-radius: 10px;
     backdrop-filter: blur(20px);
     padding: 2rem;
@@ -100,7 +93,7 @@ h1{
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
     box-shadow: 0 0 16px 1px var(--color-palette-second);
     animation: wobble 0.3s ease-in;
-    color: rgb(24, 210, 243);
+    color: var(--color-palette-fourth);
     transform: scale(1.02);
     -webkit-transform: scale(1.02);
     -moz-transform: scale(1.02);
@@ -111,7 +104,7 @@ h1{
 .circle{
     width: 8rem;
     height: 8rem;
-    background: rgba(24, 210, 243, 0.534);
+    background: var(--color-palette-circle);
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -153,15 +146,6 @@ h1{
     cursor: pointer;
 }
 
-.register-forget{
-    margin: 1rem 0;
-    display: flex;
-    justify-content: space-between;
-}
-
-.register-forget a:hover{
-    color: rgb(24, 210, 243);
-}
 .opacity {
     opacity: 0.9;
 }
@@ -176,7 +160,15 @@ i{
     color: var(--color-palette-first);
 }
 
-.alert{
+.register-link{
+    text-decoration: none;
+    color: var(--color-palette-fourth);
+}
+.register-link:hover{
+    color: var(--color-palette-fifth);
+}
+/* alerts flash msgs */
+/* .alert{
     color: white;
     font-weight: 700;
     margin: 10px;
@@ -196,7 +188,7 @@ i{
 
 .success{
     background-color: green;
-}
+} */
 
 @keyframes wobble {
     0% {

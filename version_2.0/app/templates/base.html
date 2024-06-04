@@ -35,7 +35,7 @@
             <li><a href="{{ url_for('admin.index') }}">Admins</a></li>
             <li><a href="{{ url_for('projects.projects_list') }}">Projects</a></li>
             <li><a href="#">About</a></li>
-            <li><button class="btn" onclick="toggleTheme()">Change Theme</button></li>
+            <li><a class="theme-link-btn"><button class="btn" onclick="toggleTheme()">Theme</button></a></li>
         </ul>
     </div>
     <script src="{{ url_for('static', filename='base.js') }}"></script>
