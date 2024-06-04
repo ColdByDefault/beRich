@@ -78,15 +78,18 @@ const themes = [
         '--color-palette-third': '#9a8c98', 
         '--color-palette-fourth': '#c9ada7',
         '--color-palette-fifth': '#f2e9e4',
+        '--color-palette-circle': '#927e7ab0',
     },
     {
-        '--prime-background-color': '#000000',
-        '--secondary-background-color': '#14213d',
-        '--color-palette-first': '#22223b',
-        '--color-palette-second': '#4a4e69',
-        '--color-palette-third': '#9a8c98', 
-        '--color-palette-fourth': '#c9ada7',
-        '--color-palette-fifth': '#f2e9e4',
+        '--prime-background-color': '#0a2344',
+        '--secondary-background-color': '#3b1d4a',
+        '--color-palette-first': '#282844',
+        '--color-palette-first-light': '#3b1d4a',
+        '--color-palette-second': '#6b1650',
+        '--color-palette-third': '#9c1057', 
+        '--color-palette-fourth': '#cc095d',
+        '--color-palette-fifth': '#fd0363',
+        '--color-palette-circle': '#fd0363',
     }
 ];
 
