@@ -60,7 +60,7 @@ canvas {
 }
 
 .menu-btn {
-    position: absolute;
+    position: fixed;
     z-index: 5;
     right: 20px;
     top: 20px;

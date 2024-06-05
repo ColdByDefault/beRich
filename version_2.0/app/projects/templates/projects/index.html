@@ -19,11 +19,22 @@
             <a class="app-link" href="#berichTkinter">BeRich-Flask_Webapp</a>
             <img src="{{url_for('projects.static', filename='assets/1.jpg')}}">
         </div>
+        <div class="berichTkinter-link">
+            <a class="app-link" href="">Coming Soon</a>
+            <img src="{{url_for('projects.static', filename='assets/2.jpg')}}">
+        </div>
+        <div class="berichTkinter-link">
+            <a class="app-link" href="">Coming Soon</a>
+            <img src="{{url_for('projects.static', filename='assets/2.jpg')}}">
+        </div>
     </section> 
 </section>
 <section id="berichTkinter">
-    <div class="readme-container" id="english">
-        <a class="switch-lang" href="#german"><i class="fa-solid fa-circle-up" style="padding:1rem;"> English / Deutsch</i></a>
+    <div class="readme-container preview" id="english">
+        <!--<a class="switch-lang" href="#german"><i class="fa-solid fa-circle-up" style="padding:1rem;"> English / Deutsch</i></a>-->
+        <a class="show-more" href="javascript:void(0);" onclick="toggleSection('english')">
+            <i class="fa-solid fa-circle-down" style="padding:1rem;"> Show More</i>
+        </a>
         <header class="repo-header">
             <h1>Berichtsheft Application</h1>
             <p>Python-based Application with tkinter GUI Documentation</p>
@@ -84,9 +95,12 @@
             </section>
         </article>
     </div>
-    <div class="readme-container" id="german">
+    <div class="readme-container preview" id="german">
+        <a class="show-more" href="javascript:void(0);" onclick="toggleSection('german')">
+            <i class="fa-solid fa-circle-down" style="padding:1rem;"> Mehr anzeigen</i>
+        </a>
         <header class="repo-header">
-            <a class="switch-lang" href="#english"><i style="padding:1rem;" class="fa-solid fa-circle-up"> Deutsch / English</i></a>
+            <!--<a class="switch-lang" href="#english"><i style="padding:1rem;" class="fa-solid fa-circle-up"> Deutsch / English</i></a>-->
             <h1>Berichtsheft-Anwendung</h1> 
             <p>Python-basierte Anwendung mit tkinter GUI-Dokumentation</p>
             <a href="https://github.com/ColdByDefault/BerichtsheftectkInter" target="_blank">Zur App gehen</a><hr>
@@ -143,6 +157,136 @@
         </article>
     </div>
 </section> 
-
+<hr>
+<div class="header-h1"><h1>Online <span>Be</span><span>Rich</span>tshefte</h1></div>
+<section id="berichWebApp">
+    <div class="container-web-app">
+        <form action="{{ url_for('projects.submit_form') }}" method="post" enctype="multipart/form-data">
+            <div class="input-group">
+                <label for="trainee_name">Vor- Nachname:</label>
+                <input type="text" id="trainee_name" name="trainee_name" class="input-field" required>
+            </div>
+            <div class="input-group">
+                <label for="location">Standort:</label>
+                <input type="text" id="location" name="location" class="input-field" required>
+            </div>
+            <div class="input-group">
+                <label for="record_no">Ausbildungsnachweis Nr.:</label>
+                <input type="text" id="record_no" name="record_no" class="input-field" required>    
+            </div>
+            <div class="input-group">
+                <label for="trainer_name">Trainer/Dozent:</label>
+                <input type="text" id="trainer_name" name="trainer_name" class="input-field" required>
+            </div>
+            <div class="input-group">
+                <label for="training_start">Ausbildungswoche von:</label>
+                <input type="text" id="training_start" name="training_start" class="input-field" required>
+            </div>
+            <div class="input-group">
+                <label for="training_end">bis</label>
+                <input type="text" id="training_end" name="training_end" class="input-field" required>
+            </div>
+            <div class="input-group">
+                <label for="lf-select">Wähle ein LF:</label>
+                <select name="lf-code" id="lf-select">
+                    <optgroup label="FISI/FIAE">
+                        {% for i in range(10) %}
+                        <option value="LF-{{ '%02d' % i }}">LF-{{ '%02d' % i }}</option>
+                        {% endfor %}
+                    </optgroup>
+                    <optgroup label="LF-F">
+                        {% for i in range(1, 5) %}
+                        <option value="LF-F{{ i }}">LF-F{{ i }}</option>
+                        {% endfor %}
+                    </optgroup>
+                    <optgroup label="LF-FIAE">
+                        {% for i in range(10, 13) %}
+                        <option value="LF-{{ i }}A">LF-{{ i }}A</option>
+                        {% endfor %}
+                    </optgroup>
+                    <optgroup label="LF-FISI">
+                        {% for i in range(10, 13) %}
+                        <option value="LF-{{ i }}S">LF-{{ i }}S</option>
+                        {% endfor %}
+                    </optgroup>
+                </select>
+            </div>
+            <div class="input-group">
+                <button type="submit" class="btn btn-primary">Absenden</button>
+            </div>
+            <div class="input-group">
+                <label for="imageUpload">Lade deine Unterschrift hoch: *Optional</label>
+                <input type="file" id="imageUpload" name="imageUpload" accept="image/*" class="input-field">
+            </div>
+        </form>
+    </div>
+</section>
+<hr>
+<section>
+    <div class="container-result">
+        <div class="container-result-form">
+            <h1 class="document-header"><span>GFN</span> Berichtshefte</h1>
+            {% if form_data %}
+                {% set ns = namespace(count=0) %}
+                {% for key, value in form_data.items() %}
+                    {% if key != 'image_path' %}
+                        <div class="form-feld"><strong class="{{ key | lower }}">{{ key }}</strong></div>
+                        <div class="form-feld value">{{ value }}</div>
+                        {% set ns.count = ns.count + 1 %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="schedule-flex-grow">
+            <div>Tag</div>
+            <div>Notes</div>
+            <div>LF</div>
+        </div>
+        <div class="schedule-notes">
+            {% if notes_data %}
+                {% set ns = namespace(week_num=1) %}
+                <div class="schedule-weekNr">
+                    <div>Woche</div>
+                    <div>Woche {{ ns.week_num }}</div>
+                    <div></div>
+                </div>
+                {% for day, notes in notes_data.items() %}
+                    <div class="schedule-days">
+                        <div>{{ day[:-1] | lower }}</div>
+                        <textarea class="editable-notes" data-day="{{ day }}">{{ notes }}</textarea>
+                        <div>{{ form_data.LF }}</div>
+                    </div>
+                    {% if loop.index % 5 == 0 and not loop.last %}
+                        {% set ns.week_num = ns.week_num + 1 %}
+                        <div class="schedule-weekNr">
+                            <div>Woche</div>
+                            <div>Woche {{ ns.week_num }}</div>
+                            <div></div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            <button onclick="submitEdits()">Save Changes</button>
+        </div>
+        <div class="strong">Durch die nachfolgende Unterschrift wird die Richtigkeit
+            und Vollständigkeit der obigen Angaben bestätigt.
+        </div>
+        <!--<div class="user-picture">
+            <div class="just-a-line">
+                {% if form_data and form_data.image_path %}
+                    <img src="{{ url_for('static', filename=form_data.image_path) }}" >
+                {% endif %}
+            </div>-->
+            <div class="just-a-line">
+                <div class="user-picture">Datum, Unterschrift der/des Auszubildenden</div>
+                <div class="user-picture">Datum, Unterschrift der/des Ausbildenden (GFN GmbH,Praktikumsbetrieb)</div>
+            </div>    
+        </div>    
+    </div>
+    <div>
+        <a href="/coming_soon">Absenden</a>
+    </div>
+</section>
 <script src="{{ url_for('projects.static', filename='projects.js')}}"></script>
+
 {% endblock %}

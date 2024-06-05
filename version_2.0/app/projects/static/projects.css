@@ -38,6 +38,7 @@
 .apps-list-section{
     position: relative;
     display: flex;
+    flex-wrap: wrap;
     width: 80%;
     height: auto;
     align-items: center;
@@ -74,8 +75,23 @@
 
 
 /* beRichCTKinter README. */
-.switch-lang{
+/* switch between languages is disabled */
+/* .switch-lang{
     margin-left: 1rem;
+    animation: blinkingColor 2s infinite;
+} */
+
+.show-more{
+    position: relative;
+    transform: translateX(-50%);
+    background-color: var(--prime-background-color-light);
+    color: var(--color-palette-fifth);
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    z-index: 2;
     animation: blinkingColor 2s infinite;
 }
 .readme-container{
@@ -103,7 +119,7 @@
     color: var(--color-palette-fifth);
 }
 .repo-header a{
-    text-decoration: none;
+    text-decoration: underline;
     color: var(--color-palette-fifth);
     padding-top: .5rem;
 }
@@ -142,20 +158,118 @@
     margin-bottom: 8px;
 }
 
-@keyframes blinkingColor {
-    0%, 100% { color: var(--color-palette-fifth); } 
-    50% { color: var(--color-palette-circle) } 
+
+
+
+
+/* WEB_APP STYLES  */
+.header-h1{
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-top: 2rem;
+    color: var(--color-palette-second);
+}
+.header-h1 h1 span{
+    color: var(--color-palette-fifth);
+}
+/* .header-h1 h1 span:nth-child(1){
+    color: var(--color-palette-fourth);
+} */
+/* .header-h1 h1 span:nth-child(2){
+    color: var(--color-palette-fifth);
+} */
+#berichWebApp{
+    position: relative;
+    z-index: 3;
+    border: 1px solid var(--color-palette-fifth);
+    margin: 5rem 2rem;
+}
+.container-web-app{ 
+    width: 80%; 
+    margin: 0 auto; 
+    padding: 20px;
+    z-index: 3;
 }
 
 
 
+.container-web-app form{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.input-group{
+    flex: 0 0 40%;
+    margin-bottom: 10px;
+}
+
+.input-field{
+    display: block;
+    padding: 8.5px;
+    width: 100%;
+    margin: 1rem 0;
+    color: var(--color-palette-fifth);
+    outline: none;
+    background-color: var(--prime-background-color-light);
+    border: .3px solid var(--color-palette-fifth);
+    border-radius: 5px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    font-size: 15px;
+    backdrop-filter: blur(15px);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+#lf-select{
+    margin-left: 1.2rem;
+    width: 4rem; 
+    height: 2rem; 
+    background-color: var(--prime-background-color-light); 
+    color: var(--color-palette-fifth); 
+    padding: 8px; 
+    border-radius: 4px; 
+    border: 1px solid #ccc;
+}
+
+optgroup{
+    background-color: var(--prime-background-color);
+}
+optgroup option{
+    background-color: var(--prime-background-color);
+}
+
+.input-group2{
+    margin-top: 1rem;
+}
+
+.input-group label{
+    color: var(--color-palette-fifth);
+}
+
+
+.readme-container.preview {
+    height: 100px; /* Adjust height as needed for preview */
+    overflow: hidden;
+    position: relative;
+}
+
+.readme-container.full {
+    height: auto;
+}
 
 
 
-
-
-
-
+/* switch between languages is disabled */
+@keyframes blinkingColor {
+    0%, 100% { color: var(--color-palette-fifth); } 
+    50% { color: var(--color-palette-circle) } 
+}
 
 
 /* Responsive adjustments */
