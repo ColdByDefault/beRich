@@ -388,6 +388,8 @@ optgroup option{
     border-bottom: 1px groove black;
     display: flex;
     width: 100%;
+    padding: 2rem;
+    background-color: rgb(255, 255, 255);
 }
 
 .user-picture{

@@ -157,6 +157,7 @@
         </article>
     </div>
 </section> 
+<hr>
 <div class="header-h1"><h1>Online <span>Be</span><span>Rich</span>tshefte</h1></div>
 <section id="berichWebApp">
     <div class="container-web-app">
@@ -211,16 +212,13 @@
                 </select>
             </div>
             <div class="input-group">
-                <a class="submit-berichts show-more" href="javascript:void(0);" id="submitButton" onclick="showResultsSection()">Absenden</a>
-            </div>
-            <div class="input-group">
-                <label for="imageUpload">Lade deine Unterschrift hoch: *Optional</label>
-                <input type="file" id="imageUpload" name="imageUpload" accept="image/*" class="input-field">
+                <a type="submit" class="show-more" onclick="showResultsSection()">Absenden</a>
             </div>
         </form>
     </div>
 </section>
-<section id="results-section" style="display: none;">
+<hr>
+<section id="results-section" style="display: none">
     <div class="container-result">
         <div class="container-result-form">
             <h1 class="document-header"><span>GFN</span> Berichtshefte</h1>
@@ -228,7 +226,7 @@
                 {% set ns = namespace(count=0) %}
                 {% for key, value in form_data.items() %}
                     {% if key != 'image_path' %}
-                        <div class="form-feld key"><strong class="{{ key | lower }}">{{ key }}</strong></div>
+                        <div class="form-feld"><strong class="{{ key | lower }}">{{ key }}</strong></div>
                         <div class="form-feld value">{{ value }}</div>
                         {% set ns.count = ns.count + 1 %}
                     {% endif %}
@@ -268,19 +266,10 @@
         <div class="strong">Durch die nachfolgende Unterschrift wird die Richtigkeit
             und Vollständigkeit der obigen Angaben bestätigt.
         </div>
-        <!--<div class="user-picture">
-            <div class="just-a-line">
-                {% if form_data and form_data.image_path %}
-                    <img src="{{ url_for('static', filename=form_data.image_path) }}" >
-                {% endif %}
-            </div>-->
-            <div class="just-a-line">
-                <div class="user-picture">Datum, Unterschrift der/des Auszubildenden</div>
-                <div class="user-picture">Datum, Unterschrift der/des Ausbildenden (GFN GmbH,Praktikumsbetrieb)</div>
-            </div>    
+        <div class="just-a-line">
+            <div class="user-picture">Datum, Unterschrift der/des Auszubildenden</div>
+            <div class="user-picture">Datum, Unterschrift der/des Ausbildenden (GFN GmbH,Praktikumsbetrieb)</div>
         </div>    
-    </div>
 </section>
-
 <script src="{{ url_for('projects.static', filename='projects.js')}}"></script>
 {% endblock %}
