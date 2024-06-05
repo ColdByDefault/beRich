@@ -58,3 +58,14 @@ function toggleSection(id) {
         console.error('Error:', error);
     });
 } */
+
+function showResultsSection() {
+    document.getElementById('results-section').style.display = 'flex';
+}
+
+
+
+
+
+
+

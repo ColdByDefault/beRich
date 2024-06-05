@@ -211,7 +211,7 @@
                 </select>
             </div>
             <div class="input-group">
-                <button type="submit" class="btn btn-primary">Absenden</button>
+                <a class="submit-berichts show-more" href="javascript:void(0);" id="submitButton" onclick="showResultsSection()">Absenden</a>
             </div>
             <div class="input-group">
                 <label for="imageUpload">Lade deine Unterschrift hoch: *Optional</label>
@@ -220,8 +220,7 @@
         </form>
     </div>
 </section>
-
-<section id="results-section">
+<section id="results-section" style="display: none;">
     <div class="container-result">
         <div class="container-result-form">
             <h1 class="document-header"><span>GFN</span> Berichtshefte</h1>
@@ -282,6 +281,6 @@
         </div>    
     </div>
 </section>
-<script src="{{ url_for('projects.static', filename='projects.js')}}"></script>
 
+<script src="{{ url_for('projects.static', filename='projects.js')}}"></script>
 {% endblock %}

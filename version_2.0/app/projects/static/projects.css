@@ -263,7 +263,9 @@ optgroup option{
     height: auto;
 }
 
-
+.submit-berichts{
+    background-color: var(--secondary-background-color);
+}
 /* RESULTS */
 #results-section{
     position: relative;
@@ -273,6 +275,7 @@ optgroup option{
     justify-content: center;
     margin: 1rem 0;
 }
+
 
 .container-result{
     width: 75%;
