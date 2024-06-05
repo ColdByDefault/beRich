@@ -21,6 +21,7 @@ def submit_form():
         'LF': request.form.get('lf-code')
     }
 
+
     
         
     from .models import process_form_data
@@ -31,6 +32,9 @@ def submit_form():
     
 
     return render_template('projects/index.html', form_data=form_data, notes_data=selected_notes)
+
+
+
 
 
 

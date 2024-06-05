@@ -19,9 +19,11 @@ function toggleSection(id) {
 
 
 
-function showResultsSection() {
+/* function showResultsSection() {
     document.getElementById('results-section').style.display = 'flex';
-}
+} */
+
+
 
 
 

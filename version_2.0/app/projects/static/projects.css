@@ -392,17 +392,6 @@ optgroup option{
     background-color: rgb(255, 255, 255);
 }
 
-.user-picture{
-    position: relative;
-    width: 100%;
-    height: 3.3rem;
-    background-color: rgb(255, 255, 255);
-}
-.user-picture img{
-    width: 120px;
-    height: 30px;
-    padding-left: 2rem;
-}
 .strong{
     background-color: rgb(255, 255, 255);
     width: 100%;
