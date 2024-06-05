@@ -167,28 +167,53 @@ i{
 .register-link:hover{
     color: var(--color-palette-fifth);
 }
+
+
 /* alerts flash msgs */
-/* .alert{
-    color: white;
+.alert{
+    color: var(--color-palette-first-light);
     font-weight: 700;
     margin: 10px;
+    padding: .2rem;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    box-shadow: 0 0 36px 1px var(--secondary--background-color);
+    border-radius: 10px;
+    backdrop-filter: blur(20px);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 }
 
 .info{
-    background-color: orange;
+    background-color: var(--color-palette-fourth);
+    position: absolute;
+    top: 0;
+    z-index: 2;
 }
 
 .warning{
-    background-color: yellow;
+    background-color: var(--color-palette-fifth);
+    position: absolute;
+    top: 0;
+    z-index: 2;
 }
 
 .error{
     background-color: red;
+    position: absolute;
+    top: 0;
+    z-index: 2;
 }
 
 .success{
-    background-color: green;
-} */
+    background-color: rgb(43, 126, 43);
+    position: absolute;
+    top: 0;
+    z-index: 2;
+}
 
 @keyframes wobble {
     0% {
