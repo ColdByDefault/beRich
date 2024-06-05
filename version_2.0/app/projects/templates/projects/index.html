@@ -157,7 +157,6 @@
         </article>
     </div>
 </section> 
-<hr>
 <div class="header-h1"><h1>Online <span>Be</span><span>Rich</span>tshefte</h1></div>
 <section id="berichWebApp">
     <div class="container-web-app">
@@ -221,8 +220,8 @@
         </form>
     </div>
 </section>
-<hr>
-<section>
+
+<section id="results-section">
     <div class="container-result">
         <div class="container-result-form">
             <h1 class="document-header"><span>GFN</span> Berichtshefte</h1>
@@ -230,7 +229,7 @@
                 {% set ns = namespace(count=0) %}
                 {% for key, value in form_data.items() %}
                     {% if key != 'image_path' %}
-                        <div class="form-feld"><strong class="{{ key | lower }}">{{ key }}</strong></div>
+                        <div class="form-feld key"><strong class="{{ key | lower }}">{{ key }}</strong></div>
                         <div class="form-feld value">{{ value }}</div>
                         {% set ns.count = ns.count + 1 %}
                     {% endif %}
@@ -281,9 +280,6 @@
                 <div class="user-picture">Datum, Unterschrift der/des Ausbildenden (GFN GmbH,Praktikumsbetrieb)</div>
             </div>    
         </div>    
-    </div>
-    <div>
-        <a href="/coming_soon">Absenden</a>
     </div>
 </section>
 <script src="{{ url_for('projects.static', filename='projects.js')}}"></script>
