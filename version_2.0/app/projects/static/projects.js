@@ -19,9 +19,6 @@ function toggleSection(id) {
 
 
 
-/* function showResultsSection() {
-    document.getElementById('results-section').style.display = 'flex';
-} */
 
 
 

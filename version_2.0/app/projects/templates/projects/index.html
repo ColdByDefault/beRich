@@ -265,13 +265,6 @@
                     {% endfor %}
                 {% endif %}
             </div>
-            <div class="strong">Durch die nachfolgende Unterschrift wird die Richtigkeit
-                und Vollständigkeit der obigen Angaben bestätigt.
-            </div>
-            <div class="just-a-line">
-                <div class="user-picture">Datum, Unterschrift der/des Auszubildenden</div>
-                <div class="user-picture">Datum, Unterschrift der/des Ausbildenden (GFN GmbH,Praktikumsbetrieb)</div>
-            </div>
             <input type="hidden" name="trainee_name" value="{{ form_data['Vor- Nachname'] }}">
             <input type="hidden" name="location" value="{{ form_data['Standort'] }}">
             <input type="hidden" name="record_no" value="{{ form_data['Ausbildungsnachweis NR.'] }}">
@@ -283,8 +276,6 @@
         </div>
     </form>
 </section>
-
-
 
 <script src="{{ url_for('projects.static', filename='projects.js')}}"></script>
 {% endblock %}
