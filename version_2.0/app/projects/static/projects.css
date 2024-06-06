@@ -398,6 +398,11 @@ optgroup option{
     padding: 1rem 0;
 }
 
+.download-link{
+    position: relative;
+    z-index: 4;
+    text-decoration: none;
+}
 
 /* switch between languages is disabled */
 @keyframes blinkingColor {

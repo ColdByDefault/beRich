@@ -161,7 +161,7 @@
 <div class="header-h1"><h1>Online <span>Be</span><span>Rich</span>tshefte</h1></div>
 <section id="berichWebApp">
     <div class="container-web-app">
-        <form action="{{ url_for('projects.submit_form') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ url_for('projects.submit_form') }}" method="POST" enctype="multipart/form-data">
             <div class="input-group">
                 <label for="trainee_name">Vor- Nachname:</label>
                 <input type="text" id="trainee_name" name="trainee_name" class="input-field" required>
@@ -218,58 +218,73 @@
     </div>
 </section>
 <hr>
-<section id="results-section" >
-    <div class="container-result">
-        <div class="container-result-form">
-            <h1 class="document-header"><span>GFN</span> Berichtshefte</h1>
-            {% if form_data %}
-                {% set ns = namespace(count=0) %}
-                {% for key, value in form_data.items() %}
-                    {% if key != 'image_path' %}
-                        <div class="form-feld"><strong class="{{ key | lower }}">{{ key }}</strong></div>
-                        <div class="form-feld value">{{ value }}</div>
-                        {% set ns.count = ns.count + 1 %}
-                    {% endif %}
-                {% endfor %}
-            {% endif %}
-        </div>
-        <div class="schedule-flex-grow">
-            <div>Tag</div>
-            <div>Notes</div>
-            <div>LF</div>
-        </div>
-        <div class="schedule-notes">
-            {% if notes_data %}
-                {% set ns = namespace(week_num=1) %}
-                <div class="schedule-weekNr">
-                    <div>Woche</div>
-                    <div>Woche {{ ns.week_num }}</div>
-                    <div></div>
-                </div>
-                {% for day, notes in notes_data.items() %}
-                    <div class="schedule-days">
-                        <div>{{ day[:-1] | lower }}</div>
-                        <textarea class="editable-notes" data-day="{{ day }}">{{ notes }}</textarea>
-                        <div>{{ form_data.LF }}</div>
+<section id="results-section">
+    <form method="POST" action="{{ url_for('projects.generate_pdf') }}">
+        <div class="container-result">
+            <div class="container-result-form">
+                <h1 class="document-header"><span>GFN</span> Berichtshefte</h1>
+                {% set form_data = form_data or {} %}
+                {% if form_data %}
+                    {% set ns = namespace(count=0) %}
+                    {% for key, value in form_data.items() %}
+                        {% if key != 'image_path' %}
+                            <div class="form-feld"><strong class="{{ key | lower }}">{{ key }}</strong></div>
+                            <div class="form-feld value">{{ value }}</div>
+                            {% set ns.count = ns.count + 1 %}
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="schedule-flex-grow">
+                <div>Tag</div>
+                <div>Notes</div>
+                <div>LF</div>
+            </div>
+            <div class="schedule-notes">
+                {% if notes_data %}
+                    {% set ns = namespace(week_num=1) %}
+                    <div class="schedule-weekNr">
+                        <div>Woche</div>
+                        <div>Woche {{ ns.week_num }}</div>
+                        <div></div>
                     </div>
-                    {% if loop.index % 5 == 0 and not loop.last %}
-                        {% set ns.week_num = ns.week_num + 1 %}
-                        <div class="schedule-weekNr">
-                            <div>Woche</div>
-                            <div>Woche {{ ns.week_num }}</div>
-                            <div></div>
+                    {% for day, notes in notes_data.items() %}
+                        <div class="schedule-days">
+                            <div>{{ day[:-1] | lower }}</div>
+                            <textarea class="editable-notes" data-day="{{ day }}">{{ notes }}</textarea>
+                            <div>{{ form_data.LF }}</div>
                         </div>
-                    {% endif %}
-                {% endfor %}
-            {% endif %}
+                        {% if loop.index % 5 == 0 and not loop.last %}
+                            {% set ns.week_num = ns.week_num + 1 %}
+                            <div class="schedule-weekNr">
+                                <div>Woche</div>
+                                <div>Woche {{ ns.week_num }}</div>
+                                <div></div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="strong">Durch die nachfolgende Unterschrift wird die Richtigkeit
+                und Vollständigkeit der obigen Angaben bestätigt.
+            </div>
+            <div class="just-a-line">
+                <div class="user-picture">Datum, Unterschrift der/des Auszubildenden</div>
+                <div class="user-picture">Datum, Unterschrift der/des Ausbildenden (GFN GmbH,Praktikumsbetrieb)</div>
+            </div>
+            <input type="hidden" name="trainee_name" value="{{ form_data['Vor- Nachname'] }}">
+            <input type="hidden" name="location" value="{{ form_data['Standort'] }}">
+            <input type="hidden" name="record_no" value="{{ form_data['Ausbildungsnachweis NR.'] }}">
+            <input type="hidden" name="trainer_name" value="{{ form_data['Trainer/Dozent'] }}">
+            <input type="hidden" name="training_start" value="{{ form_data['Ausbildungswoche-von'] }}">
+            <input type="hidden" name="training_end" value="{{ form_data['Ausbildungswoche-bis'] }}">
+            <input type="hidden" name="lf-code" value="{{ form_data['LF'] }}">
+            <button type="submit" class="download-link">Download Berichtsheft (PDF)</button>
         </div>
-        <div class="strong">Durch die nachfolgende Unterschrift wird die Richtigkeit
-            und Vollständigkeit der obigen Angaben bestätigt.
-        </div>
-        <div class="just-a-line">
-            <div class="user-picture">Datum, Unterschrift der/des Auszubildenden</div>
-            <div class="user-picture">Datum, Unterschrift der/des Ausbildenden (GFN GmbH,Praktikumsbetrieb)</div>
-        </div>    
+    </form>
 </section>
+
+
+
 <script src="{{ url_for('projects.static', filename='projects.js')}}"></script>
 {% endblock %}
