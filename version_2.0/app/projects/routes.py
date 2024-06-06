@@ -87,12 +87,12 @@ def generate_pdf_file():
     # Add user data
     for i in user_data:
         user_info = [
-            ["<b>Vor- Nachname:</b>", i['Vor- Nachname']],
-            ["<b>Standort:</b>", i['Standort']],
-            ["<b>Ausbildungsnachweis NR:</b>", i['Ausbildungsnachweis NR']],
-            ["<b>Trainer/Dozent:</b>", i['Trainer/Dozent']],
-            ["<b>Ausbildungswoche-von:</b>", i['Ausbildungswoche-von']],
-            ["<b>Ausbildungswoche-bis:</b>", i['Ausbildungswoche-bis']]
+            ["Vor- Nachname:", i['Vor- Nachname']],
+            ["Standort:", i['Standort']],
+            ["Ausbildungsnachweis NR:", i['Ausbildungsnachweis NR']],
+            ["Trainer/Dozent:", i['Trainer/Dozent']],
+            ["Ausbildungswoche-von:", i['Ausbildungswoche-von']],
+            ["Ausbildungswoche-bis:", i['Ausbildungswoche-bis']]
         ]
 
         table = Table(user_info, colWidths=[150, 300])
