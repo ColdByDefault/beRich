@@ -16,20 +16,141 @@
             <img src="{{url_for('projects.static', filename='assets/1.jpg')}}">
         </div>
         <div class="berichTkinter-link">
-            <a class="app-link" href="#berichTkinter">BeRich-Flask_Webapp</a>
+            <a class="app-link" href="#berichWebApp">BeRich-Flask_Webapp</a>
             <img src="{{url_for('projects.static', filename='assets/1.jpg')}}">
         </div>
         <div class="berichTkinter-link">
-            <a class="app-link" href="">Coming Soon</a>
+            <a class="app-link" href="#">Coming Soon</a>
             <img src="{{url_for('projects.static', filename='assets/2.jpg')}}">
         </div>
         <div class="berichTkinter-link">
-            <a class="app-link" href="">Coming Soon</a>
+            <a class="app-link" href="#">Coming Soon</a>
             <img src="{{url_for('projects.static', filename='assets/2.jpg')}}">
         </div>
     </section> 
 </section>
-<section id="berichTkinter">
+<div class="header-h1"><h1>Online <span>Be</span><span>Rich</span>tshefte</h1></div>
+<section id="berichWebApp">
+    <div class="container-web-app">
+        <form action="{{ url_for('projects.submit_form') }}" method="POST" enctype="multipart/form-data">
+            <div class="input-group">
+                <label for="trainee_name">Vor- Nachname:</label>
+                <input type="text" id="trainee_name" name="trainee_name" class="input-field" required>
+            </div>
+            <div class="input-group">
+                <label for="location">Standort:</label>
+                <input type="text" id="location" name="location" class="input-field" required>
+            </div>
+            <div class="input-group">
+                <label for="record_no">Ausbildungsnachweis Nr.:</label>
+                <input type="text" id="record_no" name="record_no" class="input-field" required>    
+            </div>
+            <div class="input-group">
+                <label for="trainer_name">Trainer/Dozent:</label>
+                <input type="text" id="trainer_name" name="trainer_name" class="input-field" required>
+            </div>
+            <div class="input-group">
+                <label for="training_start">Ausbildungswoche von:</label>
+                <input type="text" id="training_start" name="training_start" class="input-field" required>
+            </div>
+            <div class="input-group">
+                <label for="training_end">bis</label>
+                <input type="text" id="training_end" name="training_end" class="input-field" required>
+            </div>
+            <div class="input-group">
+                <label for="lf-select">Wähle ein LF:</label>
+                <select name="lf-code" id="lf-select">
+                    <optgroup label="FISI/FIAE">
+                        {% for i in range(10) %}
+                        <option value="LF-{{ '%02d' % i }}">LF-{{ '%02d' % i }}</option>
+                        {% endfor %}
+                    </optgroup>
+                    <optgroup label="LF-F">
+                        {% for i in range(1, 5) %}
+                        <option value="LF-F{{ i }}">LF-F{{ i }}</option>
+                        {% endfor %}
+                    </optgroup>
+                    <optgroup label="LF-FIAE">
+                        {% for i in range(10, 13) %}
+                        <option value="LF-{{ i }}A">LF-{{ i }}A</option>
+                        {% endfor %}
+                    </optgroup>
+                    <optgroup label="LF-FISI">
+                        {% for i in range(10, 13) %}
+                        <option value="LF-{{ i }}S">LF-{{ i }}S</option>
+                        {% endfor %}
+                    </optgroup>
+                </select>
+            </div>
+            <div class="input-group">
+                <button type="submit" class="show-more" id="submitBtn">Absenden</button>
+            </div>
+        </form>
+    </div>
+</section>
+{% if submit_form %}
+<section id="results-section">
+    <form method="POST" action="{{ url_for('projects.generate_pdf') }}">
+        <div class="container-result">
+            <div class="container-result-form">
+                <h1 class="document-header"><span>GFN</span> Berichtshefte</h1>
+                {% set form_data = form_data or {} %}
+                {% if form_data %}
+                    {% set ns = namespace(count=0) %}
+                    {% for key, value in form_data.items() %}
+                        {% if key != 'image_path' %}
+                            <div class="form-feld"><strong class="{{ key | lower }}">{{ key }}</strong></div>
+                            <div class="form-feld value">{{ value }}</div>
+                            {% set ns.count = ns.count + 1 %}
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="schedule-flex-grow">
+                <div>Tag</div>
+                <div>Notes</div>
+                <div>LF</div>
+            </div>
+            <div class="schedule-notes">
+                {% if notes_data %}
+                    {% set ns = namespace(week_num=1) %}
+                    <div class="schedule-weekNr">
+                        <div>Woche</div>
+                        <div>Woche {{ ns.week_num }}</div>
+                        <div></div>
+                    </div>
+                    {% for day, notes in notes_data.items() %}
+                        <div class="schedule-days">
+                            <div>{{ day[:-1] | lower }}</div>
+                            <textarea class="editable-notes" data-day="{{ day }}">{{ notes }}</textarea>
+                            <div>{{ form_data.LF }}</div>
+                        </div>
+                        {% if loop.index % 5 == 0 and not loop.last %}
+                            {% set ns.week_num = ns.week_num + 1 %}
+                            <div class="schedule-weekNr">
+                                <div>Woche</div>
+                                <div>Woche {{ ns.week_num }}</div>
+                                <div></div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <input type="hidden" name="trainee_name" value="{{ form_data['Vor- Nachname'] }}">
+            <input type="hidden" name="location" value="{{ form_data['Standort'] }}">
+            <input type="hidden" name="record_no" value="{{ form_data['Ausbildungsnachweis NR.'] }}">
+            <input type="hidden" name="trainer_name" value="{{ form_data['Trainer/Dozent'] }}">
+            <input type="hidden" name="training_start" value="{{ form_data['Ausbildungswoche-von'] }}">
+            <input type="hidden" name="training_end" value="{{ form_data['Ausbildungswoche-bis'] }}">
+            <input type="hidden" name="lf-code" value="{{ form_data['LF'] }}">
+            <button type="submit" class="download-link">Download Berichtsheft (PDF)</button>
+        </div>
+    </form>
+</section>
+{% endif %}
+
+
+<section id="berichTkinter" class="berichTkinter">
     <div class="readme-container preview" id="english">
         <!--<a class="switch-lang" href="#german"><i class="fa-solid fa-circle-up" style="padding:1rem;"> English / Deutsch</i></a>-->
         <a class="show-more" href="javascript:void(0);" onclick="toggleSection('english')">
@@ -157,125 +278,6 @@
         </article>
     </div>
 </section> 
-<hr>
-<div class="header-h1"><h1>Online <span>Be</span><span>Rich</span>tshefte</h1></div>
-<section id="berichWebApp">
-    <div class="container-web-app">
-        <form action="{{ url_for('projects.submit_form') }}" method="POST" enctype="multipart/form-data">
-            <div class="input-group">
-                <label for="trainee_name">Vor- Nachname:</label>
-                <input type="text" id="trainee_name" name="trainee_name" class="input-field" required>
-            </div>
-            <div class="input-group">
-                <label for="location">Standort:</label>
-                <input type="text" id="location" name="location" class="input-field" required>
-            </div>
-            <div class="input-group">
-                <label for="record_no">Ausbildungsnachweis Nr.:</label>
-                <input type="text" id="record_no" name="record_no" class="input-field" required>    
-            </div>
-            <div class="input-group">
-                <label for="trainer_name">Trainer/Dozent:</label>
-                <input type="text" id="trainer_name" name="trainer_name" class="input-field" required>
-            </div>
-            <div class="input-group">
-                <label for="training_start">Ausbildungswoche von:</label>
-                <input type="text" id="training_start" name="training_start" class="input-field" required>
-            </div>
-            <div class="input-group">
-                <label for="training_end">bis</label>
-                <input type="text" id="training_end" name="training_end" class="input-field" required>
-            </div>
-            <div class="input-group">
-                <label for="lf-select">Wähle ein LF:</label>
-                <select name="lf-code" id="lf-select">
-                    <optgroup label="FISI/FIAE">
-                        {% for i in range(10) %}
-                        <option value="LF-{{ '%02d' % i }}">LF-{{ '%02d' % i }}</option>
-                        {% endfor %}
-                    </optgroup>
-                    <optgroup label="LF-F">
-                        {% for i in range(1, 5) %}
-                        <option value="LF-F{{ i }}">LF-F{{ i }}</option>
-                        {% endfor %}
-                    </optgroup>
-                    <optgroup label="LF-FIAE">
-                        {% for i in range(10, 13) %}
-                        <option value="LF-{{ i }}A">LF-{{ i }}A</option>
-                        {% endfor %}
-                    </optgroup>
-                    <optgroup label="LF-FISI">
-                        {% for i in range(10, 13) %}
-                        <option value="LF-{{ i }}S">LF-{{ i }}S</option>
-                        {% endfor %}
-                    </optgroup>
-                </select>
-            </div>
-            <div class="input-group">
-                <button type="submit" class="show-more" id="submitBtn">Absenden</button>
-            </div>
-        </form>
-    </div>
-</section>
-<hr>
-<section id="results-section">
-    <form method="POST" action="{{ url_for('projects.generate_pdf') }}">
-        <div class="container-result">
-            <div class="container-result-form">
-                <h1 class="document-header"><span>GFN</span> Berichtshefte</h1>
-                {% set form_data = form_data or {} %}
-                {% if form_data %}
-                    {% set ns = namespace(count=0) %}
-                    {% for key, value in form_data.items() %}
-                        {% if key != 'image_path' %}
-                            <div class="form-feld"><strong class="{{ key | lower }}">{{ key }}</strong></div>
-                            <div class="form-feld value">{{ value }}</div>
-                            {% set ns.count = ns.count + 1 %}
-                        {% endif %}
-                    {% endfor %}
-                {% endif %}
-            </div>
-            <div class="schedule-flex-grow">
-                <div>Tag</div>
-                <div>Notes</div>
-                <div>LF</div>
-            </div>
-            <div class="schedule-notes">
-                {% if notes_data %}
-                    {% set ns = namespace(week_num=1) %}
-                    <div class="schedule-weekNr">
-                        <div>Woche</div>
-                        <div>Woche {{ ns.week_num }}</div>
-                        <div></div>
-                    </div>
-                    {% for day, notes in notes_data.items() %}
-                        <div class="schedule-days">
-                            <div>{{ day[:-1] | lower }}</div>
-                            <textarea class="editable-notes" data-day="{{ day }}">{{ notes }}</textarea>
-                            <div>{{ form_data.LF }}</div>
-                        </div>
-                        {% if loop.index % 5 == 0 and not loop.last %}
-                            {% set ns.week_num = ns.week_num + 1 %}
-                            <div class="schedule-weekNr">
-                                <div>Woche</div>
-                                <div>Woche {{ ns.week_num }}</div>
-                                <div></div>
-                            </div>
-                        {% endif %}
-                    {% endfor %}
-                {% endif %}
-            </div>
-            <input type="hidden" name="trainee_name" value="{{ form_data['Vor- Nachname'] }}">
-            <input type="hidden" name="location" value="{{ form_data['Standort'] }}">
-            <input type="hidden" name="record_no" value="{{ form_data['Ausbildungsnachweis NR.'] }}">
-            <input type="hidden" name="trainer_name" value="{{ form_data['Trainer/Dozent'] }}">
-            <input type="hidden" name="training_start" value="{{ form_data['Ausbildungswoche-von'] }}">
-            <input type="hidden" name="training_end" value="{{ form_data['Ausbildungswoche-bis'] }}">
-            <input type="hidden" name="lf-code" value="{{ form_data['LF'] }}">
-            <button type="submit" class="download-link">Download Berichtsheft (PDF)</button>
-        </div>
-    </form>
-</section>
 
 <script src="{{ url_for('projects.static', filename='projects.js')}}"></script>
 {% endblock %}

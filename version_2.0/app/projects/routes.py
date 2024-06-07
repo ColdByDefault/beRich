@@ -12,7 +12,8 @@ user_data = []
 def projects_list():
     form_data = {}
     notes_data = {}
-    return render_template('projects/index.html', form_data=form_data, notes_data=notes_data)
+    submit_form = False
+    return render_template('projects/index.html', form_data=form_data, notes_data=notes_data, submit_form=submit_form)
 
 @projects.route('/submit_form', methods=['POST'])
 def submit_form():
@@ -31,7 +32,8 @@ def submit_form():
     selected_notes = notes.get(form_data['LF'], {})
     process_form_data(form_data)
 
-    return render_template('projects/index.html', form_data=form_data, notes_data=selected_notes)
+    submit_form = True
+    return render_template('projects/index.html', form_data=form_data, notes_data=selected_notes, submit_form=submit_form)
 
 @projects.route('/generate-pdf', methods=['POST'])
 def generate_pdf():
@@ -39,7 +41,7 @@ def generate_pdf():
     standort = request.form.get('location')
     ausbildungs_num = request.form.get('record_no')
     trainer = request.form.get('trainer_name')
-    week_start = request.form.get('training_start') 
+    week_start = request.form.get('training_start')
     week_end = request.form.get('training_end')
     lf_code = request.form.get('lf-code')
 
