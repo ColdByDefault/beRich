@@ -9,13 +9,24 @@
 
 {% block content %}
 <div class="lab-container">
-    {% if user in session %}
-    <h1 class="title">Lab Files</h1>
-    <div class="cheatsheet-list">
-        <h1>CheatSheets</h1>
+    {% if 'user' in session %}
+    <div class="elements-list cheatSheets-container">
+        <h1 class="title">CheatSheets</h1>
         <ul>
-            {% for file in files %}
-                <li><a class="underline-expand" href="{{ url_for('library.download_file', filename=file) }}">{{ file }}</a></li>
+            {% for item, category in items %}
+                {% if category == 'cheat_sheet' %}
+                    <li><a href="{{ url_for('library.download_file', filename=item) }}">{{ item }}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="elements-list cheatSheets-container">
+        <h1 class="title">Books</h1>
+        <ul>
+            {% for item, category in items %}
+                {% if category == 'book' %}
+                    <li><a href="{{ url_for('library.download_book', filename=item) }}">{{ item }}</a></li>
+                {% endif %}
             {% endfor %}
         </ul>
     </div>
