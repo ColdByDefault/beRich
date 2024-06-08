@@ -3,23 +3,42 @@ from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from config import Config
 from flask_wtf.csrf import CSRFProtect
-from flask_talisman import Talisman
 import logging
 from logging.handlers import RotatingFileHandler
 import os
-from flask_limiter import Limiter
-from flask_limiter.util import get_remote_address
+
 
 
 
 
 db = SQLAlchemy()
 csrf = CSRFProtect()
-talisman = Talisman(content_security_policy=None)
-limiter = Limiter(
-    key_func=get_remote_address,
-    default_limits=["200 per day", "50 per hour"]
-)
+
+
+csp = {
+    'default-src': [
+        '\'self\'',
+        'https://stackpath.bootstrapcdn.com',
+        'https://ajax.googleapis.com',
+        'https://kit.fontawesome.com',
+        'https://fonts.googleapis.com'
+    ],
+    'script-src': [
+        '\'self\'',
+        'https://kit.fontawesome.com'
+    ],
+    'style-src': [
+        '\'self\'',
+        'https://fonts.googleapis.com',
+        'https://stackpath.bootstrapcdn.com'
+    ],
+    'font-src': [
+        '\'self\'',
+        'https://fonts.gstatic.com'
+    ]
+}
+
+
 
 def create_app():
     app = Flask(__name__)
@@ -27,10 +46,7 @@ def create_app():
     app.config.from_object(Config)
     
     db.init_app(app)
-    csrf.init_app(app)
-    talisman.init_app(app, force_https=True)
-    limiter.init_app(app)
-    
+
     
     if not app.debug:
         if not os.path.exists('logs'):
