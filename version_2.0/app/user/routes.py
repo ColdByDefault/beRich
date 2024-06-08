@@ -71,5 +71,5 @@ def profile():
 @user.route('/logout')
 def logout():
     session.pop("user", None)
-    flash("Erfolgreich ausgeloggt!", "success")
+    session.clear()
     return redirect(url_for("main.index"))

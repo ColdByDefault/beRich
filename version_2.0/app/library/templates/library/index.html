@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Labs{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('library.static', filename='lab.css') }}">
+{% endblock %}
+
+
+{% block content %}
+    <h1>Lab Files</h1>
+    <ul>
+        {% for file in files %}
+            <li><a href="{{ url_for('library.download_file', filename=file) }}">{{ file }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -32,6 +32,9 @@ def create_app():
     
     from .projects import projects as projects_blueprint
     app.register_blueprint(projects_blueprint, url_prefix='/projects')
+    
+    from .library import library as library_blueprint
+    app.register_blueprint(library_blueprint, url_prefix='/library')
 
     
     with app.app_context():
