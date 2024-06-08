@@ -44,6 +44,7 @@ def generate_pdf():
     week_start = request.form.get('training_start')
     week_end = request.form.get('training_end')
     lf_code = request.form.get('lf-code')
+    
 
     from .notesDatabase import notes
     selected_notes = notes.get(lf_code, {})
@@ -59,7 +60,7 @@ def generate_pdf():
             'Ausbildungswoche-von': week_start,
             'Ausbildungswoche-bis': week_end,
             'LF': lf_code,
-            'notes': selected_notes
+            'notes': selected_notes,
         })
 
     pdf_file = generate_pdf_file()
@@ -80,7 +81,7 @@ def generate_pdf_file():
     normal_style.fontSize = 12
 
     # Add title
-    title = Paragraph("Berichtsheft", title_style)
+    title = Paragraph("Berichtsheft Klasse 24/26", title_style)
     elements.append(title)
     elements.append(Spacer(1, 12))
 
@@ -94,7 +95,7 @@ def generate_pdf_file():
             ["Ausbildungsnachweis NR:", i['Ausbildungsnachweis NR']],
             ["Trainer/Dozent:", i['Trainer/Dozent']],
             ["Ausbildungswoche-von:", i['Ausbildungswoche-von']],
-            ["Ausbildungswoche-bis:", i['Ausbildungswoche-bis']]
+            ["Ausbildungswoche-bis:", i['Ausbildungswoche-bis']],
         ]
 
         table = Table(user_info, colWidths=[150, 300])

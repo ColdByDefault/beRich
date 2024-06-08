@@ -1,11 +1,35 @@
+.lab-container{
+    position: relative;
+    width: auto;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+}
+
 .title{
     color: var(--color-palette-second);
     text-align: center;
     margin-top: 2rem;
     font-size: 3rem;
 }
+.title-2{
+    padding: 2rem;
+    border: 1px solid var(--prime-background-color);
+    box-shadow: 0 0 25px 5px var(--prime-background-color-light);
+    border-radius: 10px;
+    backdrop-filter: blur(20px);
+    background: var(--prime-background-color-light);
+}
 
-
+.title-2 a{
+    text-decoration: none;
+    color: var(--color-palette-fifth);
+}
+.title-2 a:hover{
+    color: var(--secondary-background-color);
+}
 
 .cheatsheet-list{
     position: relative;
