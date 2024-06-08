@@ -35,6 +35,9 @@ def create_app():
     
     from .library import library as library_blueprint
     app.register_blueprint(library_blueprint, url_prefix='/library')
+    
+    from .number_converter import number_converter as number_converter_blueprint
+    app.register_blueprint(number_converter_blueprint, url_prefix='/number_converter')
 
     
     with app.app_context():

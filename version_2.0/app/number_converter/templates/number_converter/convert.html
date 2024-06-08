@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}HEX / DEC / BIN Converter{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('number_converter.static', filename='converter.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="num-converter">
+    <h1>Number Converter</h1>
+    <form method="POST" action="{{ url_for('number_converter.convert') }}">
+        <label for="number">Number:</label>
+        <input type="text" id="number" name="number" required>
+        <label for="base">Base (2, 10, or 16):</label>
+        <input type="text" id="base" name="base" required>
+        <button type="submit">Convert</button>
+    </form>
+    {% if decimal is not none %}
+        <h2>Conversion Results:</h2>
+        <p>Decimal: {{ decimal }}</p>
+        <p>Binary: {{ binary }}</p>
+        <p>Hexadecimal: {{ hexadecimal }}</p>
+    {% endif %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
+{% endblock %}

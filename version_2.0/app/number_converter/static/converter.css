@@ -1,0 +1,11 @@
+.num-converter{
+    position: relative;
+    z-index: 3;
+    color: wheat;
+}
+
+.num-converter h2, .num-converter p{
+    position: relative;
+    color: aliceblue;
+}
+
