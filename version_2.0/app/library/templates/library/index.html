@@ -8,10 +8,13 @@
 
 
 {% block content %}
-    <h1>Lab Files</h1>
-    <ul>
-        {% for file in files %}
-            <li><a href="{{ url_for('library.download_file', filename=file) }}">{{ file }}</a></li>
-        {% endfor %}
-    </ul>
+    <h1 class="title">Lab Files</h1>
+    <div class="cheatsheet-list">
+        <h1>CheatSheets</h1>
+        <ul>
+            {% for file in files %}
+                <li><a class="underline-expand" href="{{ url_for('library.download_file', filename=file) }}">{{ file }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}

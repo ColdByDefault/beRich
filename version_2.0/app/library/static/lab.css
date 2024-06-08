@@ -1,5 +1,71 @@
-ul{
+.title{
+    color: var(--color-palette-second);
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 3rem;
+}
+
+
+
+.cheatsheet-list{
     position: relative;
     z-index: 3;
-    margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+.cheatsheet-list h1{
+    color: var(--color-palette-fifth);
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.cheatsheet-list ul{
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    height: auto;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 8px 0 0 0;
+    padding: 2rem;
+    border: 1px solid var(--prime-background-color);
+    box-shadow: 0 0 25px 5px var(--prime-background-color-light);
+    border-radius: 10px;
+    backdrop-filter: blur(20px);
+    background: var(--prime-background-color-light);
+    list-style: none;
+}
+
+.cheatsheet-list ul li{
+    padding: 1rem;
+}
+
+.cheatsheet-list ul li a{
+    position: relative;
+    display: inline-block;
+    color: var(--color-palette-fourth);
+    text-decoration: none;
+}
+
+.cheatsheet-list ul li a:after{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 50%;
+    bottom: -2px;
+    background-color: var(--color-palette-second);
+    transition: width 0.25s ease-out, left 0.25s ease-out;
+}
+
+.cheatsheet-list ul li a:hover:after{
+    width: 100%;
+    left: 0;
+}
+
+.cheatsheet-list ul li a:hover{
+    color: var(--color-palette-second);
+}
+
