@@ -28,7 +28,10 @@ cd version_2.0
 ```bash
 pip install -r requirements.txt
 ```
-6. Run the application:
+6. Navigate to config.py and add your secret key.
+Alternatively, you can navigate to the secretkey folder and run the key generator script to generate a unique secret key.
+
+7. Run the application:
 ```bash
 python run.py
 ```

@@ -17,7 +17,7 @@ def create_app():
     
     app.permanent_session_lifetime = timedelta(days=1) # save the sessions on Server for 5 days
     
-    app.secret_key = 'exsGTXk5rMUACXYT84XE5A'  # generated secret_key from secret_key_.py
+    app.secret_key = 'your secret key'  # generated secret_key from secret_key_.py
 
     db.init_app(app)  # start the database
     
