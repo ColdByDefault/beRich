@@ -6,7 +6,7 @@
 
 | Version | Supported          |
 | ------- | ------------------ |
-| > 2.0   | HTTPS,SSH,CSP,CSRF |
+| > 2.0   | HTTPS,SSH,CSP,CSRF, Loggs app.log |
 
 
 
