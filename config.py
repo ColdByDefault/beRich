@@ -10,4 +10,4 @@ class Config:
     WTF_CSRF_SECRET_KEY = 'Your CSRF Secret Key'
     SESSION_COOKIE_SECURE = True
     SESSION_COOKIE_HTTPONLY = True
-    SESSION_COOKIE_SAMESITE = 'Lax'
+    SESSION_COOKIE_SAMESITE = 'Something'
