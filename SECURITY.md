@@ -12,4 +12,4 @@
 
 ## Reporting a Vulnerability
 
-No Vulnerability TEST yet
+No Vulnerability FOUND yet
