@@ -243,11 +243,19 @@ input[type="checkbox"] {
     }
 
     .wrapper ul {
-        top: 40%;
+        top: 50%;
     }
 
     .wrapper ul li a {
         font-size: 24px; /* Smaller font size for medium screens */
+    }
+    .wrapper ul li:not(:last-child) a {
+        font-size: 25px;
+        padding-left: 75px;
+    }
+    .wrapper ul li:last-child a {
+        font-size: 25px;
+        padding-left: 55px;
     }
 }
 
@@ -263,12 +271,27 @@ input[type="checkbox"] {
     }
 
     .wrapper ul {
-        top: 45%;
-        
+        top: 55%;
     }
-
-    .wrapper ul li a {
-        font-size: 20px;
-
+    
+    .wrapper ul li:not(:last-child) a {
+        font-size: 15px;
+        padding-left: 75px;
     }
+    .wrapper ul li:last-child a {
+        font-size: 15px;
+        padding-left: 55px;
+    }
+    
+    .wrapper ul li:not(:last-child) a:after{
+        width: 50%;
+        left: 0;
+        top: 0;
+        padding-left: 55px;
+    }
+    .wrapper ul li:not(:last-child) a:hover:after {
+        transform: scale(1);
+    }
+    
+    
 }
