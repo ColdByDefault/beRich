@@ -6,7 +6,7 @@
 
 | Version | Supported          |
 | ------- | ------------------ |
-| < 3.0   | :x:                |
+| > 2.0   | HTTPS,SSH,CSP,CSRF |
 
 
 
