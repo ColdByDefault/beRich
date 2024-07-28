@@ -101,8 +101,7 @@ dmypy.json
 # VS Code
 .vscode/
 
-# Migrations folder (do not ignore)
-#migrations/ (commented out because it should be tracked)
+
 
 # Ignore all __pycache__ directories
 **/__pycache__/
