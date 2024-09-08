@@ -1,4 +1,4 @@
-🚀 Announcement: Exciting Update Coming to Flask Multi-App Platform! 🎉
+# 🚀 Announcement: Exciting Update Coming to Flask Multi-App Platform! 🎉
 
 We are thrilled to announce that the Flask Multi-App Platform is undergoing a major update! In our next release, we will be introducing a brand-new Next.js frontend to enhance the user experience across all applications within the platform.
 🎨 What’s New?
